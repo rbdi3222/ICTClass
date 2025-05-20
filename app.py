@@ -7,12 +7,9 @@ from tensorflow.keras.applications.efficientnet_v2 import preprocess_input
 
 app = Flask(__name__)
 
-# 절대경로로 모델 불러오기
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-MODEL_PATH = os.path.join(BASE_DIR, "model")
 
 # 모델 로드
-model = tf.keras.models.load_model(MODEL_PATH)
+model = tf.keras.models.load_model("model.keras")
 class_names = np.load("class_names.npy", allow_pickle=True)
 
 def preprocess_image(image_bytes):
